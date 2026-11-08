@@ -8,27 +8,16 @@
 
 ---
 
-## The video
+## Where this fits
 
-This is the machine learning project behind the Sleeping Dev video
-**SQL Full Course With a Real ML Project (Football Data)**.
+This is the environment used to train the prediction models of **ParleyToday**
+([parleytoday.com](https://parleytoday.com)), a sports analytics platform. The production pipelines
+that collect the data, serve the predictions and monitor the models are private and are not part of
+this repository.
 
-The course teaches SQL on the database this project reads from, and ends by building the kind of table
-these models are trained on: one row per match, with features computed only from earlier matches. The
-models here start where that table ends.
-
-Three numbers from the course put the results of this repository in context. They come from different
-sets of matches, so read them as a scale and not as a ranking:
-
-| Approach | Matches called right |
-| --- | --- |
-| Always pick the home team | 43.5% |
-| One feature written in SQL: points in the previous five matches | 46.7% |
-| The models in this repository on their test set, with the 20 features the selection keeps out of 1,048 candidates | about 54% |
-
-The course also shows what happens when that one SQL feature includes the match it is trying to
-predict: the score jumps to 65.6%, above the real models. That is the leak the audit in
-[Feature selection](#feature-selection--the-core-idea) looks for.
+On their test set, the models here call about 54% of matches right, using the 20 features the
+selection keeps out of 1,048 candidates. The selection includes a leakage audit, described in
+[Feature selection](#feature-selection--the-core-idea).
 
 ---
 
